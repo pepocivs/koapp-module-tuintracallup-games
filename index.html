@@ -9,7 +9,30 @@
     <koa-icon-button icon="search"></koa-icon-button>
   </koa-toolbar>
 
-  <div>
-    {{games}}
+  <div role="listbox">
+    <koa-item ng-repeat="game in games">
+      <koa-item-body>
+        <div>{{game.local.name}}</div>
+      </koa-item-body>
+      <div class="avatar">
+        <img src='{{game.local.shield[100]}}' item-icon>
+      </div>
+      <koa-item-body two-line>
+        <div>{{game.date}}</div>
+        <div secondary>{{game.facility}}</div>
+      </koa-item-body>
+      <div class="avatar">
+        <img src='{{game.away.shield[100]}}' item-icon>
+      </div>
+      <koa-item-body>
+        <div>{{game.away.name}}</div>
+      </koa-item-body>
+    </koa-icon-item>
   </div>
+
+  <div ng-if="tuintracallupgames.message">
+    {{tuintracallupgames.message}}
+  </div>
+
+
 </div>

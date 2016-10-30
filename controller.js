@@ -20,13 +20,9 @@
     else        showError('team Id not found');
 
     function init() {
-
       storageService.get('tuintraLogin')
         .then(getInfo)
         .catch(showError);
-
-
-
     }
 
     function getInfo(data) {
@@ -35,6 +31,7 @@
         .success(function(data){
           $scope.games      = data;
           $rootScope.isBusy = false;
+          applyScope();
         })
         .error(showError);
     }
@@ -44,8 +41,14 @@
     }
 
     function showError(e){
-      $scope.tuintracallupgames.message = $filter('translate')('tuintra-callupgames.error-loading')+e;
+      $scope.tuintracallupgames.message = $filter('translate')('tuintra-callupgames.error-loading')+' - '+e;
       $rootScope.isBusy = false;
+    }
+
+    function applyScope() {
+      if(!$scope.$$phase) {
+        $scope.$apply();
+      }
     }
 
   }
