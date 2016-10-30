@@ -1,0 +1,15 @@
+<div ng-controller="tuintracallupgamesCtrl" class="module tuintracallupgames">
+
+  <div class='iframeLoading' ng-if="isBusy">
+    <div class='transitionloader'>
+    </div>
+  </div>
+  <koa-toolbar>
+    <koa-icon-button icon="arrow-back" ng-click="backButton()"></koa-icon-button>
+    <koa-icon-button icon="search"></koa-icon-button>
+  </koa-toolbar>
+
+  <div>
+    {{games}}
+  </div>
+</div>
