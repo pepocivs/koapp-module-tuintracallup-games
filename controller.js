@@ -27,7 +27,7 @@
 
     function getInfo(data) {
       var userData = data.value.userInfo;
-      $http.get('http://api.tuintra.com/public/'+userData.domain+'/getCalendar?nDays=3&teamId='+teamId)
+      $http.get('http://api.tuintra.com/'+userData.domain+'/calendar?nDays=3&teamId='+teamId)
         .success(function(data){
           $scope.games      = data;
           $rootScope.isBusy = false;

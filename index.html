@@ -18,7 +18,7 @@
         <img src='{{game.local.shield[100]}}' item-icon>
       </div>
       <koa-item-body two-line>
-        <div>{{game.date}}</div>
+        <div>{{game.date | date:"dd/MM/yyyy HH:mm"}}</div>
         <div secondary>{{game.facility}}</div>
       </koa-item-body>
       <div class="avatar">
