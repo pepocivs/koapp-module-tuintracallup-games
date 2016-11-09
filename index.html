@@ -10,7 +10,7 @@
   </koa-toolbar>
 
   <div role="listbox">
-    <koa-item ng-repeat="game in games">
+    <koa-item ng-repeat="game in games" ng-click="selectGame('{{game._id}}')">
       <koa-item-body>
         <div>{{game.local.name}}</div>
       </koa-item-body>

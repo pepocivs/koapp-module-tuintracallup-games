@@ -1,4 +1,5 @@
 {
   "tuintra-callupgames.error-loading": "Opps! Team not found",
-  "tuintra-callupgames.select-team": "Select"
+  "tuintra-callupgames.select-team": "Select",
+  "tuintra-callupgames.notloged": "You're not logged!"
 }

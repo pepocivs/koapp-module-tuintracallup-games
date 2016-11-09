@@ -13,6 +13,8 @@
 
 
     $scope.backButton = backButton;
+    $scope.selectGame = selectGame;
+
     $rootScope.isBusy = true;
     var teamId = ($location.search().teamId) ? $location.search().teamId : false;
 
@@ -26,14 +28,21 @@
     }
 
     function getInfo(data) {
-      var userData = data.value.userInfo;
-      $http.get('http://api.tuintra.com/'+userData.domain+'/calendar?nDays=3&teamId='+teamId)
-        .success(function(data){
-          $scope.games      = data;
-          $rootScope.isBusy = false;
-          applyScope();
-        })
-        .error(showError);
+      if (!data) showError($filter('translate')('tuintra-callupgames.notloged'));
+      else{
+        var userData = data.value.userInfo;
+        $http.get('http://api.tuintra.com/'+userData.domain+'/calendar?nDays=3&teamId='+teamId)
+          .success(function(data){
+            $scope.games      = data;
+            $rootScope.isBusy = false;
+            applyScope();
+          })
+          .error(showError);
+      }
+    }
+
+    function selectGame(gameId) {
+      $location.path($scope.tuintracallupgames.modulescope.childrenUrl.tuintracallup).search('gameId', gameId);
     }
 
     function backButton() {
